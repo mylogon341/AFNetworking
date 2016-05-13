@@ -9,8 +9,6 @@
 #import "DoTheRest.h"
 #import "AFHTTPSessionManager.h"
 
-#define KEY_GLOBAL_BASE @"globalBase"
-
 @implementation DoTheRest
 
 +(void)setGlobalBaseUrl:(NSString *)url{

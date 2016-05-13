@@ -7,6 +7,7 @@
 //
 
 #import "RestObject.h"
+#import "DoTheRest.h"
 
 #define KEY_Headers @"headers"
 #define KEY_BaseURL @"baseurl"
@@ -19,8 +20,8 @@
 
 -(NSString *)getFullAddress{
     
-    if (self.baseUrl) {
-        <#statements#>
+    if (!self.baseUrl) {
+        self.baseUrl = [[NSUserDefaults standardUserDefaults]objectForKey:KEY_GLOBAL_BASE];
     }
     
     if ([[self.urlAttributes substringToIndex:1] isEqualToString:@"?"] &&

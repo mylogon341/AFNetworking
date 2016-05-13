@@ -9,6 +9,8 @@
 #import "RetryController.h"
 #import <Foundation/Foundation.h>
 
+#define KEY_GLOBAL_BASE @"globalBase"
+
 @interface DoTheRest : NSObject
 
 +(void)sendRestObject:(RestObject*)obj response:(void(^)(id))response error:(void(^)(NSError*))error;
