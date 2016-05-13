@@ -6,7 +6,7 @@
 //  Copyright © 2016 AFNetworking. All rights reserved.
 //
 
-#import "RetryObject.h"
+#import "RestObject.h"
 
 #define KEY_Headers @"headers"
 #define KEY_BaseURL @"baseurl"
@@ -15,8 +15,26 @@
 #define KEY_BODY @"body"
 #define KEY_Rest_Type @"type"
 
-@implementation RetryObject
+@implementation RestObject
 
+-(NSString *)getFullAddress{
+    
+    if (self.baseUrl) {
+        <#statements#>
+    }
+    
+    if ([[self.urlAttributes substringToIndex:1] isEqualToString:@"?"] &&
+        [[self.baseUrl substringFromIndex:1]isEqualToString:@"/"]) {
+        
+        self.baseUrl = [self.baseUrl substringToIndex:self.baseUrl.length-1];
+        
+    }else if (![[self.baseUrl substringFromIndex:self.baseUrl.length-1]isEqualToString:@"/"]){
+        
+        self.baseUrl = [self.baseUrl stringByAppendingString:@"/"];
+    }
+    
+    return [NSString stringWithFormat:@"%@%@",self.baseUrl,self.urlAttributes];
+}
 
 #pragma mark - De/Encoding objects for NSUserDefaults
 - (void)encodeWithCoder:(NSCoder *)coder{

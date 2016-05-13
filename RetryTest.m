@@ -8,6 +8,10 @@
 
 #import <XCTest/XCTest.h>
 
+#import "RestObject.h"
+#import "RetryController.h"
+#import "DoTheRest.h"
+
 @interface RetryTest : XCTestCase
 
 @end
@@ -24,9 +28,26 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)testGet{
+    
+    __block BOOL done;
+    
+    RestObject * obj = [RestObject new];
+    [obj setRestType:GET];
+    [obj setBaseUrl:@"http://learningdashboard.northumbria.nhs.uk/api/api"];
+    [obj setUrlAttributes:@"Employee/listall"];
+    
+    [DoTheRest sendRestObject:obj
+                     response:^(id returned){
+                         done = YES;
+                     }error:^(NSError* err){
+                         done = YES;
+                     }];
+    
+    while(!done) {
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+    }
+    
 }
 
 - (void)testPerformanceExample {

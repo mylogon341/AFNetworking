@@ -15,7 +15,7 @@ typedef enum : NSInteger {
     PUT
 } REST_TYPE;
 
-@interface RetryObject : NSObject
+@interface RestObject : NSObject
 
 /**Array of dictionaries with key:value for http header*/
 @property (nonatomic, strong) NSMutableArray *httpHeaders;
@@ -34,5 +34,8 @@ typedef enum : NSInteger {
 
 /**Takes an enum REST_TYPE*/
 @property (nonatomic) NSInteger restType;
+
+
+-(NSString *)getFullAddress;
 
 @end

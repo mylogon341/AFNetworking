@@ -176,6 +176,13 @@
 		29D96E991BCC406B00F571A5 /* UIImageView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 299522931BBF13C700859F49 /* UIImageView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		29D96E9A1BCC406B00F571A5 /* UIProgressView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 299522961BBF13C700859F49 /* UIProgressView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		29F5EF031C47E64F008B976A /* AFUIWebViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F5EF021C47E64F008B976A /* AFUIWebViewTests.m */; };
+		3C7B832D1CE35DCA0033ECE1 /* RestObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7B832B1CE35DCA0033ECE1 /* RestObject.h */; };
+		3C7B832E1CE35DCA0033ECE1 /* RestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7B832C1CE35DCA0033ECE1 /* RestObject.m */; };
+		3C7B83311CE360DC0033ECE1 /* RetryController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7B832F1CE360DC0033ECE1 /* RetryController.h */; };
+		3C7B83321CE360DC0033ECE1 /* RetryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7B83301CE360DC0033ECE1 /* RetryController.m */; };
+		3C7B83351CE4C4B80033ECE1 /* RetryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7B83341CE4C4B80033ECE1 /* RetryTest.m */; };
+		3C7B83381CE4C5090033ECE1 /* DoTheRest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7B83361CE4C5090033ECE1 /* DoTheRest.h */; };
+		3C7B83391CE4C5090033ECE1 /* DoTheRest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7B83371CE4C5090033ECE1 /* DoTheRest.m */; };
 		5F4323BB1BF63741003B8749 /* Equifax_Secure_Certificate_Authority_Root.cer in Resources */ = {isa = PBXBuildFile; fileRef = 5F4323B31BF63741003B8749 /* Equifax_Secure_Certificate_Authority_Root.cer */; };
 		5F4323BC1BF63741003B8749 /* Equifax_Secure_Certificate_Authority_Root.cer in Resources */ = {isa = PBXBuildFile; fileRef = 5F4323B31BF63741003B8749 /* Equifax_Secure_Certificate_Authority_Root.cer */; };
 		5F4323BD1BF63741003B8749 /* Equifax_Secure_Certificate_Authority_Root.cer in Resources */ = {isa = PBXBuildFile; fileRef = 5F4323B31BF63741003B8749 /* Equifax_Secure_Certificate_Authority_Root.cer */; };
@@ -298,6 +305,13 @@
 		2995229B1BBF13C700859F49 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		29D3413E1C20D46400A7D266 /* AFCompoundResponseSerializerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFCompoundResponseSerializerTests.m; sourceTree = "<group>"; };
 		29F5EF021C47E64F008B976A /* AFUIWebViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFUIWebViewTests.m; sourceTree = "<group>"; };
+		3C7B832B1CE35DCA0033ECE1 /* RestObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestObject.h; sourceTree = "<group>"; };
+		3C7B832C1CE35DCA0033ECE1 /* RestObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestObject.m; sourceTree = "<group>"; };
+		3C7B832F1CE360DC0033ECE1 /* RetryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RetryController.h; sourceTree = "<group>"; };
+		3C7B83301CE360DC0033ECE1 /* RetryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RetryController.m; sourceTree = "<group>"; };
+		3C7B83341CE4C4B80033ECE1 /* RetryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RetryTest.m; sourceTree = "<group>"; };
+		3C7B83361CE4C5090033ECE1 /* DoTheRest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoTheRest.h; sourceTree = "<group>"; };
+		3C7B83371CE4C5090033ECE1 /* DoTheRest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoTheRest.m; sourceTree = "<group>"; };
 		5F4323B31BF63741003B8749 /* Equifax_Secure_Certificate_Authority_Root.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = Equifax_Secure_Certificate_Authority_Root.cer; sourceTree = "<group>"; };
 		5F4323B41BF63741003B8749 /* GeoTrust_Global_CA-cross.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GeoTrust_Global_CA-cross.cer"; sourceTree = "<group>"; };
 		5F4323B51BF63741003B8749 /* google.com.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = google.com.cer; sourceTree = "<group>"; };
@@ -463,6 +477,8 @@
 		2995222F1BBF104D00859F49 = {
 			isa = PBXGroup;
 			children = (
+				3C7B83341CE4C4B80033ECE1 /* RetryTest.m */,
+				3C7B832A1CE35D7D0033ECE1 /* HelperClasses */,
 				299522451BBF125A00859F49 /* AFNetworking */,
 				299522851BBF13C700859F49 /* UIKit+AFNetworking */,
 				2995223B1BBF104D00859F49 /* Supporting Files */,
@@ -544,6 +560,19 @@
 			path = "UIKit+AFNetworking";
 			sourceTree = "<group>";
 		};
+		3C7B832A1CE35D7D0033ECE1 /* HelperClasses */ = {
+			isa = PBXGroup;
+			children = (
+				3C7B832B1CE35DCA0033ECE1 /* RestObject.h */,
+				3C7B832C1CE35DCA0033ECE1 /* RestObject.m */,
+				3C7B832F1CE360DC0033ECE1 /* RetryController.h */,
+				3C7B83301CE360DC0033ECE1 /* RetryController.m */,
+				3C7B83361CE4C5090033ECE1 /* DoTheRest.h */,
+				3C7B83371CE4C5090033ECE1 /* DoTheRest.m */,
+			);
+			name = HelperClasses;
+			sourceTree = "<group>";
+		};
 		5F4323B21BF63741003B8749 /* Google.com */ = {
 			isa = PBXGroup;
 			children = (
@@ -588,6 +617,8 @@
 			files = (
 				2995225A1BBF125A00859F49 /* AFURLRequestSerialization.h in Headers */,
 				299522A81BBF13C700859F49 /* UIImage+AFNetworking.h in Headers */,
+				3C7B83311CE360DC0033ECE1 /* RetryController.h in Headers */,
+				3C7B83381CE4C5090033ECE1 /* DoTheRest.h in Headers */,
 				299522531BBF125A00859F49 /* AFHTTPSessionManager.h in Headers */,
 				2995229C1BBF13C700859F49 /* AFAutoPurgingImageCache.h in Headers */,
 				299522581BBF125A00859F49 /* AFSecurityPolicy.h in Headers */,
@@ -601,6 +632,7 @@
 				299522B01BBF13C700859F49 /* UIWebView+AFNetworking.h in Headers */,
 				299522AC1BBF13C700859F49 /* UIProgressView+AFNetworking.h in Headers */,
 				299522A61BBF13C700859F49 /* UIButton+AFNetworking.h in Headers */,
+				3C7B832D1CE35DCA0033ECE1 /* RestObject.h in Headers */,
 				299522A01BBF13C700859F49 /* AFNetworkActivityIndicatorManager.h in Headers */,
 				299522AE1BBF13C700859F49 /* UIRefreshControl+AFNetworking.h in Headers */,
 			);
@@ -975,6 +1007,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C7B83351CE4C4B80033ECE1 /* RetryTest.m in Sources */,
 				29D3413F1C20D46400A7D266 /* AFCompoundResponseSerializerTests.m in Sources */,
 				2960BAC31C1B2F1A00BA02F0 /* AFUIButtonTests.m in Sources */,
 				298D7C961BC2C94400FD3B3E /* AFTestCase.m in Sources */,
@@ -1025,10 +1058,13 @@
 				299522AA1BBF13C700859F49 /* UIImageView+AFNetworking.m in Sources */,
 				299522B11BBF13C700859F49 /* UIWebView+AFNetworking.m in Sources */,
 				299522591BBF125A00859F49 /* AFSecurityPolicy.m in Sources */,
+				3C7B832E1CE35DCA0033ECE1 /* RestObject.m in Sources */,
 				299522A71BBF13C700859F49 /* UIButton+AFNetworking.m in Sources */,
 				299522541BBF125A00859F49 /* AFHTTPSessionManager.m in Sources */,
+				3C7B83321CE360DC0033ECE1 /* RetryController.m in Sources */,
 				2995225F1BBF125A00859F49 /* AFURLSessionManager.m in Sources */,
 				2995225B1BBF125A00859F49 /* AFURLRequestSerialization.m in Sources */,
+				3C7B83391CE4C5090033ECE1 /* DoTheRest.m in Sources */,
 				2995229D1BBF13C700859F49 /* AFAutoPurgingImageCache.m in Sources */,
 				299522A31BBF13C700859F49 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				2995225D1BBF125A00859F49 /* AFURLResponseSerialization.m in Sources */,
