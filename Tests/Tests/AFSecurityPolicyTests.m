@@ -419,7 +419,7 @@ static SecTrustRef AFUTTrustWithCertificate(SecCertificateRef certificate) {
 }
 
 //- (void)testPolicyWithCertificatePinningAllowsGoogleComServerTrustIncompleteChainWithRootCertificatePinnedAndValidDomainName {
-//    //TODO THIS TEST HAS BEEN DISABLED UNTIL CERTS HAVE BEEN UPDATED.
+//    // THIS TEST HAS BEEN DISABLED UNTIL CERTS HAVE BEEN UPDATED.
 //    //Please see conversation here: https://github.com/AFNetworking/AFNetworking/pull/3159#issuecomment-178647437
 //    //
 //    // Fix certificate validation for servers providing incomplete chains (#3159) - test case

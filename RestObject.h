@@ -24,24 +24,32 @@ typedef enum : NSInteger {
 @property (nonatomic, strong) NSString *baseUrl;
 
 /**?group=test&name=luke*/
+@property (nonatomic, strong) NSString *endPoint;
+
+/***/
 @property (nonatomic, strong) NSMutableDictionary *urlAttributes;
 
 /**Could be a dictionary or whatever needs serialising*/
-@property (nonatomic, strong) id object;
+@property (nonatomic, strong) id bodyObject;
 
-/**Body of call*/
-@property (nonatomic, strong) NSString *body;
+///**Body of call. Stored as a dictionar*/
+//@property (nonatomic, strong) NSString *body;
 
 @property (nonatomic) NSInteger restType;
+
+/**Post object*/
+@property (nonatomic, strong) id objectToPost;
 
 /**Takes an enum REST_TYPE*/
 +(instancetype)withRestType:(NSInteger)type;
 
+/**Headers for the request*/
 -(void)setHeaderKey:(NSString*)key andValue:(NSString*)value;
 
 /**key value for, say ?text=mytext or &height=12*/
--(void)addAttWithKey:(NSString*)key andValue:(NSString*)value;
+-(void)setAttWithKey:(NSString*)key andValue:(NSString*)value;
 
 -(NSString *)getFullAddress;
+
 
 @end

@@ -52,7 +52,7 @@
     return [[RestObject alloc]initWithRestType:type];
 }
 
--(void)addAttWithKey:(NSString *)key andValue:(NSString *)value{
+-(void)setAttWithKey:(NSString *)key andValue:(NSString *)value{
     [self.urlAttributes setValue:value forKey:key];
 }
 
@@ -78,17 +78,25 @@
     NSString * attString = [self getFullAtt];
     
     if ([[attString substringToIndex:1] isEqualToString:@"?"] &&
-        [[self.baseUrl substringFromIndex:1]isEqualToString:@"/"]) {
+        [[self.endPoint substringFromIndex:1]isEqualToString:@"/"]) {
         
-        self.baseUrl = [self.baseUrl substringToIndex:self.baseUrl.length-1];
+        self.endPoint = [self.endPoint substringToIndex:self.endPoint.length-1];
         
-    }else if (![[self.baseUrl substringFromIndex:self.baseUrl.length-1]isEqualToString:@"/"] &&
+    }else if (![[self.endPoint substringFromIndex:self.endPoint.length-1]isEqualToString:@"/"] &&
               ![[attString substringToIndex:1] isEqualToString:@"?"]){
         
-        self.baseUrl = [self.baseUrl stringByAppendingString:@"/"];
+        self.endPoint = [self.endPoint stringByAppendingString:@"/"];
     }
     
-    return [NSString stringWithFormat:@"%@%@",self.baseUrl,attString];
+    NSString * fullAddress = self.baseUrl;
+    
+    if (self.endPoint) {
+        fullAddress = [fullAddress stringByAppendingString:[NSString stringWithFormat:@"/%@",self.endPoint]];
+    }
+    
+    fullAddress = [fullAddress stringByAppendingString:attString];
+    
+    return [fullAddress stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
 }
 
 -(void)setHeaderKey:(NSString *)key andValue:(NSString *)value{
@@ -106,8 +114,8 @@
     [coder encodeObject:self.httpHeaders forKey:KEY_Headers];
     [coder encodeObject:self.baseUrl forKey:KEY_BaseURL];
     [coder encodeObject:self.urlAttributes forKey:KEY_URLAtt];
-    [coder encodeObject:self.object forKey:KEY_Serial_OBJ];
-    [coder encodeObject:self.body forKey:KEY_BODY];
+//    [coder encodeObject:self.object forKey:KEY_Serial_OBJ];
+    [coder encodeObject:self.bodyObject forKey:KEY_BODY];
     [coder encodeInteger:self.restType forKey:KEY_Rest_Type];
 }
 
@@ -123,8 +131,8 @@
         
         self.baseUrl = [coder decodeObjectForKey:KEY_BaseURL];
         self.urlAttributes = [coder decodeObjectForKey:KEY_URLAtt];
-        self.object = [coder decodeObjectForKey:KEY_Serial_OBJ];
-        self.body = [coder decodeObjectForKey:KEY_BODY];
+//        self.object = [coder decodeObjectForKey:KEY_Serial_OBJ];
+        self.bodyObject = [coder decodeObjectForKey:KEY_BODY];
         self.restType = [coder decodeIntegerForKey:KEY_Rest_Type];
     }
     return self;
