@@ -17,14 +17,14 @@ typedef enum : NSInteger {
 
 @interface RestObject : NSObject
 
-/**Array of dictionaries with key:value for http header*/
-@property (nonatomic, strong) NSMutableArray *httpHeaders;
+/**Dictionary of key:values*/
+@property (nonatomic, strong) NSMutableDictionary *httpHeaders;
 
 /**https://nine.testworks.co.uk/api*/
 @property (nonatomic, strong) NSString *baseUrl;
 
 /**?group=test&name=luke*/
-@property (nonatomic, strong) NSString *urlAttributes;
+@property (nonatomic, strong) NSMutableDictionary *urlAttributes;
 
 /**Could be a dictionary or whatever needs serialising*/
 @property (nonatomic, strong) id object;
@@ -32,9 +32,15 @@ typedef enum : NSInteger {
 /**Body of call*/
 @property (nonatomic, strong) NSString *body;
 
-/**Takes an enum REST_TYPE*/
 @property (nonatomic) NSInteger restType;
 
+/**Takes an enum REST_TYPE*/
++(instancetype)withRestType:(NSInteger)type;
+
+-(void)setHeaderKey:(NSString*)key andValue:(NSString*)value;
+
+/**key value for, say ?text=mytext or &height=12*/
+-(void)addAttWithKey:(NSString*)key andValue:(NSString*)value;
 
 -(NSString *)getFullAddress;
 

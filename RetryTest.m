@@ -32,21 +32,34 @@
     
     __block BOOL done;
     
-    RestObject * obj = [RestObject new];
-    [obj setRestType:GET];
-    [obj setBaseUrl:@"http://learningdashboard.northumbria.nhs.uk/api/api"];
-    [obj setUrlAttributes:@"Employee/listall"];
+    RestObject * obj = [RestObject withRestType:GET];
     
+//    https://ronreiter-meme-generator.p.mashape.com/meme?bottom=Bottom+text&font=Impact&font_size=50&meme=Condescending+Wonka&top=Top+text
+    
+    [obj setBaseUrl:@"https://yoda.p.mashape.com/yoda"];
+    [obj addAttWithKey:@"sentence" andValue:@"This is a sentence"];
+    
+    [obj setHeaderKey:@"X-Mashape-Key" andValue:@"2cdhYEYUrfmshSQiI6FC2HbfEhcCp1Ey2wJjsnV3GHD35YdWWi"];
+    [obj setHeaderKey:@"Content-Type" andValue:@"image/jpeg"];
+     
+    NSLog(@"%@",[obj getFullAddress]);
     [DoTheRest sendRestObject:obj
                      response:^(id returned){
+                         NSLog(@"%@",returned);
+                         UIImage * image = [UIImage imageWithData:returned];
+                         NSLog(@"%@",image);
                          done = YES;
                      }error:^(NSError* err){
                          done = YES;
+                         NSLog(@"%@",err.userInfo);
+                         assert(!err);
                      }];
     
     while(!done) {
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
     }
+    
+    
     
 }
 

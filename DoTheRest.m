@@ -19,12 +19,30 @@
     [[NSUserDefaults standardUserDefaults]removeObjectForKey:KEY_GLOBAL_BASE];
 }
 
-+(void)sendRestObject:(RestObject *)obj response:(void (^)(id))response error:(void (^)(NSError *))error{
++(AFHTTPSessionManager *)getManager{
     
+    AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
+    
+//    AFJSONResponseSerializer *responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
+//    manager.responseSerializer = responseSerializer;
+    
+//    [manager.responseSerializer setAcceptableContentTypes:[NSSet setWithObjects:@"image/jpeg",@"text/html",nil]];
+    
+    return manager;
+}
+
++(void)sendRestObject:(RestObject *)obj response:(void (^)(id))response error:(void (^)(NSError *))error{
+
+    AFHTTPSessionManager * manager = [self getManager];
+    
+    for (NSString* key in obj.httpHeaders.allKeys) {
+        [manager.requestSerializer setValue:[obj.httpHeaders valueForKey:key]
+                         forHTTPHeaderField:key];
+    }
     switch (obj.restType) {
         case GET:
         {
-         [[self getManager] GET:[obj getFullAddress]
+         [manager GET:[obj getFullAddress]
                      parameters:nil
                        progress:nil
                         success:^(NSURLSessionDataTask * task, id ob){
@@ -34,16 +52,26 @@
                         }];
         }
             break;
-            
+         case POST:
+        {
+            [manager POST:[obj getFullAddress]
+               parameters:nil
+constructingBodyWithBlock:^(id<AFMultipartFormData>formData){
+    
+}
+                 progress:nil
+                  success:^(NSURLSessionDataTask * task, id ob){
+                      response(ob);
+                  }failure:^(NSURLSessionDataTask * task, NSError * err){
+                      error(err);
+                  }];
+        }
+            break;
         default:
             break;
     }
 }
 
-
-+(AFHTTPSessionManager*)getManager{
-    return [AFHTTPSessionManager manager];
-}
 
 
 @end
